@@ -27,6 +27,8 @@ public class AgeValidation : MonoBehaviour
             if (age >= 18)
             {
                 resultText.text = "Idade validada: maior de idade.";
+                PlayerPrefs.SetString("nascimento", birthDateInput.text);
+                Debug.Log(birthDateInput.text);
                 form.SetActive(true);
                 ageScreen.SetActive(false);
             }

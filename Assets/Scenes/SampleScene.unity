@@ -1062,7 +1062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &568096346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1919,13 +1919,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1373586810}
   m_TextComponent: {fileID: 1428955003}
   m_Placeholder: {fileID: 2022065275}
-  m_ContentType: 0
+  m_ContentType: 9
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -2158,10 +2158,10 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1426082693}
   m_TextComponent: {fileID: 314108921}
   m_Placeholder: {fileID: 538024431}
-  m_ContentType: 0
+  m_ContentType: 9
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
@@ -2331,7 +2331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1440525942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2583,10 +2583,10 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1672665810}
   m_TextComponent: {fileID: 1355955130}
   m_Placeholder: {fileID: 549608232}
-  m_ContentType: 0
+  m_ContentType: 9
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0

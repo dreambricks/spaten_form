@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class FormValidator : MonoBehaviour
 {
@@ -28,44 +30,57 @@ public class FormValidator : MonoBehaviour
 
     public void ValidateForm()
     {
-        // Validação do Nome
+        bool isFormValid = true;
+
         if (string.IsNullOrEmpty(nomeInput.text) || nomeInput.text.Length < 3)
         {
             nomeErrorText.text = "Nome inválido.";
+            isFormValid = false;
         }
         else
         {
             nomeErrorText.text = "";
+            PlayerPrefs.SetString("nome", nomeInput.text);
         }
 
-        // Validação do Email
         if (string.IsNullOrEmpty(emailInput.text) || !IsValidEmail(emailInput.text))
         {
             emailErrorText.text = "Email inválido.";
+            isFormValid = false;
         }
         else
         {
             emailErrorText.text = "";
+            PlayerPrefs.SetString("email", emailInput.text);
         }
 
-        // Validação do CPF (com máscara)
         if (string.IsNullOrEmpty(cpfInput.text) || !IsValidCPF(cpfInput.text))
         {
             cpfErrorText.text = "CPF inválido.";
+            isFormValid = false;
         }
         else
         {
             cpfErrorText.text = "";
+            PlayerPrefs.SetString("cpf", cpfInput.text);
         }
 
-        // Validação do Telefone (com máscara)
         if (string.IsNullOrEmpty(telefoneInput.text) || !IsValidTelefone(telefoneInput.text))
         {
             telefoneErrorText.text = "Telefone inválido.";
+            isFormValid = false;
         }
         else
         {
             telefoneErrorText.text = "";
+            PlayerPrefs.SetString("telefone", telefoneInput.text);
+        }
+
+        if (isFormValid)
+        {
+            SavePlayerDataToCSV();
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
@@ -128,5 +143,29 @@ public class FormValidator : MonoBehaviour
     private void ClearErrorText(Text errorText)
     {
         errorText.text = "";
+    }
+
+
+    public void SavePlayerDataToCSV()
+    {
+        string nome = PlayerPrefs.GetString("nome", "N/A");
+        string idade = PlayerPrefs.GetString("nascimento", "N/A");
+        string email = PlayerPrefs.GetString("email", "N/A");
+        string cpf = PlayerPrefs.GetString("cpf", "N/A");
+        string telefone = PlayerPrefs.GetString("telefone", "N/A");
+
+        string csvLine = $"{nome},{idade},{email},{cpf},{telefone}";
+
+        string filePath = Path.Combine(Application.persistentDataPath, "player_data.csv");
+
+        if (!File.Exists(filePath))
+        {
+            string header = "Nome,DtNascimento,Email,CPF,Telefone";
+            File.WriteAllText(filePath, header + "\n");
+        }
+
+        File.AppendAllText(filePath, csvLine + "\n");
+
+        Debug.Log("Dados salvos em: " + filePath);
     }
 }
