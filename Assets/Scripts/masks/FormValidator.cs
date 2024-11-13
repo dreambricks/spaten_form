@@ -43,16 +43,16 @@ public class FormValidator : MonoBehaviour
             PlayerPrefs.SetString("nome", nomeInput.text);
         }
 
-        if (string.IsNullOrEmpty(emailInput.text) || !IsValidEmail(emailInput.text))
-        {
-            emailErrorText.text = "Email inválido.";
-            isFormValid = false;
-        }
-        else
-        {
-            emailErrorText.text = "";
-            PlayerPrefs.SetString("email", emailInput.text);
-        }
+        // if (string.IsNullOrEmpty(emailInput.text) || !IsValidEmail(emailInput.text))
+        // {
+        //     emailErrorText.text = "Email inválido.";
+        //     isFormValid = false;
+        // }
+        // else
+        // {
+        //     emailErrorText.text = "";
+        //     PlayerPrefs.SetString("email", emailInput.text);
+        // }
 
         if (string.IsNullOrEmpty(cpfInput.text) || !IsValidCPF(cpfInput.text))
         {
@@ -65,16 +65,16 @@ public class FormValidator : MonoBehaviour
             PlayerPrefs.SetString("cpf", cpfInput.text);
         }
 
-        if (string.IsNullOrEmpty(telefoneInput.text) || !IsValidTelefone(telefoneInput.text))
-        {
-            telefoneErrorText.text = "Telefone inválido.";
-            isFormValid = false;
-        }
-        else
-        {
-            telefoneErrorText.text = "";
-            PlayerPrefs.SetString("telefone", telefoneInput.text);
-        }
+        // if (string.IsNullOrEmpty(telefoneInput.text) || !IsValidTelefone(telefoneInput.text))
+        // {
+        //     telefoneErrorText.text = "Telefone inválido.";
+        //     isFormValid = false;
+        // }
+        // else
+        // {
+        //     telefoneErrorText.text = "";
+        //     PlayerPrefs.SetString("telefone", telefoneInput.text);
+        // }
 
         if (isFormValid)
         {

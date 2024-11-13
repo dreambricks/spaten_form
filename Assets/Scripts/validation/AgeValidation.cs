@@ -34,7 +34,7 @@ public class AgeValidation : MonoBehaviour
             }
             else
             {
-                resultText.text = "É preciso ter maior de 18 anos para participar";
+                resultText.text = "É preciso ter mais de 18 anos para participar";
                 if (ColorUtility.TryParseHtmlString("#FF6464", out Color redColor))
                 {
                     resultText.color = redColor;
